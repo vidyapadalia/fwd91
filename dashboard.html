@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - MESSCARD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>MESSCARD</h1>
+        <nav>
+             <a href="index.html">Home</a>
+            <a href="registration.html">Student Login</a>
+            <a href="staff.html">Staff Login</a>
+            <a href="admin.html">Admin Login</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Admin Dashboard</h2>
+        <p>Welcome to the Mess Management Dashboard.</p>
+
+        <div class="dashboard-cards">
+            <div class="dash-card">
+                <h3>Total Students</h3>
+                <h2 id="totalStudents">0</h2>
+            </div>
+
+            <div class="dash-card">
+                <h3>Veg Students</h3>
+                <h2 id="vegStudents">0</h2>
+            </div>
+
+            <div class="dash-card">
+                <h3>Non-Veg Students</h3>
+                <h2 id="nonVegStudents">0</h2>
+            </div>
+
+            <div class="dash-card">
+                <h3>Meals Verified Today</h3>
+                <h2 id="mealsVerified">0</h2>
+            </div>
+        </div>
+
+        <h3>Student Records</h3>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Enrollment Number</th>
+                <th>Email</th>
+                <th>Mess Plan</th>
+            </tr>
+            <tbody id="studentTable">
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

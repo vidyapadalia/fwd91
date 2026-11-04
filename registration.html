@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration - MESSCARD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>MESSCARD</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="registration.html">Student Login</a>
+            <a href="staff.html">Staff Login</a>
+            <a href="admin.html">Admin Login</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Student Registration</h2>
+        <p>Register to get your unique mess QR code.</p>
+
+        <form>
+            <label>Student Name</label>
+            <input type="text" id="studentName" placeholder="Enter your name">
+
+            <label>Enrollment Number</label>
+            <input type="text" id="enrollment" placeholder="Enter enrollment number">
+
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="Enter email">
+
+            <label>Mess Plan</label>
+            <select id="messPlan">
+                <option value="3400">Vegetarian - ₹3400</option>
+                <option value="3800">Non-Vegetarian - ₹3800</option>
+            </select>
+
+            <button type="button" onclick="generateQR()">Register</button>
+        </form>
+
+        <div id="qrcode"></div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

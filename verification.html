@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Verification - MESSCARD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>MESSCARD</h1>
+        <nav>
+             <a href="index.html">Home</a>
+            <a href="registration.html">Student Login</a>
+            <a href="staff.html">Staff Login</a>
+            <a href="admin.html">Admin Login</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Staff Meal Verification</h2>
+        <p>Display the QR code for students to scan.</p>
+
+        <label>Select Meal</label>
+        <select id="staffMeal">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+        </select>
+
+        <button onclick="generateStaffQR()">Generate Staff QR</button>
+
+        <div id="staffQR"></div>
+
+        <p id="staffMessage">Waiting to generate QR...</p>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
