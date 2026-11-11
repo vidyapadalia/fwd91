@@ -19,32 +19,61 @@
 
     <section>
         <h2>Student Registration</h2>
-        <p>Register to get your unique mess QR code.</p>
+        <p>Register for your mess account.</p>
 
         <form>
             <label>Student Name</label>
-            <input type="text" id="studentName" placeholder="Enter your name">
+            <input type="text" id="studentName"
+            placeholder="Enter your name">
 
             <label>Enrollment Number</label>
-            <input type="text" id="enrollment" placeholder="Enter enrollment number">
+            <input type="text" id="enrollment"
+            placeholder="Enter enrollment number">
 
             <label>Email Address</label>
-            <input type="email" id="email" placeholder="Enter email">
+            <input type="email" id="email"
+            placeholder="Enter email">
 
-            <label>Mess Plan</label>
-            <select id="messPlan">
-                <option value="3400">Vegetarian - ₹3400</option>
-                <option value="3800">Non-Vegetarian - ₹3800</option>
+            <label>Student Category</label>
+            <select id="category" onchange="showPaymentOptions()">
+                <option value="">Select Category</option>
+                <option value="Hosteller">Hosteller</option>
+                <option value="Day Scholar">Day Scholar</option>
             </select>
 
-            <button type="button" onclick="generateQR()">Register</button>
-        </form>
+            <div id="hostellerOptions" style="display:none;">
+                <label>Mess Plan</label>
+                <select id="messPlan">
+                    <option value="3400">Vegetarian - ₹3400/month</option>
+                    <option value="3800">Non-Vegetarian - ₹3800/month</option>
+                </select>
+            </div>
 
-        <div id="qrcode"></div>
+            <div id="dayScholarOptions" style="display:none;">
+                <h3>Day Scholar Wallet</h3>
+
+                <p>Breakfast - ₹50</p>
+                <p>Lunch - ₹70</p>
+                <p>Dinner - ₹70</p>
+
+                <h3>Wallet Balance: ₹<span id="walletBalance">0</span></h3>
+
+                <label>Add Money</label>
+                <input type="number" id="rechargeAmount"
+                placeholder="Enter amount">
+
+                <button type="button" onclick="addMoney()">
+                    Add Money
+                </button>
+            </div>
+
+            <button type="button" onclick="registerStudent()">
+                Register
+            </button>
+        </form>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="script.js"></script>
-
-</body>
+</body>  
 </html>
+
