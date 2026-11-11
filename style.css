@@ -164,10 +164,22 @@ h1 span {
 }
 
 .features {
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    margin: 50px auto;
+    padding: 50px 35px;
     background-color: white;
-    padding: 60px 30px;
-    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+.feature-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
 
 .features h2 {
     color: #183b56;
@@ -175,20 +187,15 @@ h1 span {
     margin-bottom: 35px;
 }
 
+
 .feature-container {
-    max-width: 1200px;
-    margin: auto;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
 }
 
-.feature-card {
-    padding: 28px 20px;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    background-color: #f9fafb;
-}
+
 
 .icon {
     font-size: 28px;
@@ -240,7 +247,7 @@ footer {
     }
 
     .feature-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,minmax(0,1fr));
     }
 }
 
