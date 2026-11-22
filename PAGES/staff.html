@@ -3,55 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff - MESSCARD</title>
+    <title>Staff Login - MESSCARD</title>
     <link rel="stylesheet" href="../CSS/STYLE.CSS">
 </head>
 <body>
 
 <header>
     <h1>MESSCARD</h1>
-
     <nav>
         <a href="../index.html">Home</a>
-        <a href="staff.html">Staff</a>
-        <a href="staff-dashboard.html">Staff Dashboard</a>
-        <a href="verification.html">Meal Verification</a>
+        <a href="registration.html">Student Registration</a>
+        <a href="staff.html">Staff Login</a>
         <a href="admin.html">Admin Login</a>
     </nav>
 </header>
 
 <section>
-    <h2>Staff Meal Portal</h2>
-    <p>Generate one common meal QR code for all students.</p>
+    <h2>Staff Login</h2>
+    <p>Login to generate meal QR codes and view meal records.</p>
 
     <div class="dash-card">
+        <form onsubmit="staffLogin(); return false;">
 
-        <h3>Select Meal</h3>
+            <label>Staff ID</label>
+            <input type="text" id="staffId" placeholder="Enter Staff ID" required>
 
-        <select id="staffMeal">
-            <option value="">Select Meal</option>
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
-        </select>
+            <label>Password</label>
+            <input type="password" id="staffPassword" placeholder="Enter Password" required>
 
-        <button onclick="generateStaffQR()">
-            Generate Meal QR
-        </button>
+            <button type="submit">Login</button>
 
-        <div id="staffQR"></div>
-
-        <p id="staffMessage"></p>
-
-        <p>
-            All students can use the same QR code
-            displayed by the staff.
-        </p>
-
+        </form>
     </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="../JS/SCRIPT.JS"></script>
 
 </body>

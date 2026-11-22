@@ -1,7 +1,28 @@
 // MESSCARD - Smart Mess Card Management System
 
 function getStudents() {
-    return JSON.parse(localStorage.getItem("students")) || [];
+    try {
+        let data = JSON.parse(localStorage.getItem("students"));
+        return Array.isArray(data) ? data : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+}
+
+// Login guard for staff/admin pages
+function requireLogin(role) {
+    let current = sessionStorage.getItem("loginRole");
+    let allowed = current == role || (role == "staff" && current == "admin");
+
+    if (!allowed) {
+        window.location.href = role == "admin" ? "admin.html" : "staff.html";
+    }
 }
 
 function saveStudents(students) {
@@ -326,7 +347,7 @@ function onMealQRScanned(decodedText) {
 
 // VERIFY MEAL
 
-function verifyMeal() {
+function submitMealVerification() {
     let enrollmentInput = document.getElementById("verifyEnrollment");
     let mealSelect = document.getElementById("verifyMeal");
     let message = document.getElementById("verificationMessage");
@@ -471,10 +492,10 @@ function loadMealHistory() {
         total += Number(meal.amount);
 
         table.innerHTML +=
-            "<tr><td>" + meal.date + "</td>" +
-            "<td>" + meal.meal + "</td>" +
+            "<tr><td>" + escapeHTML(meal.date) + "</td>" +
+            "<td>" + escapeHTML(meal.meal) + "</td>" +
             "<td>₹" + Number(meal.amount).toFixed(2) + "</td>" +
-            "<td>" + meal.status + "</td></tr>";
+            "<td>" + escapeHTML(meal.status) + "</td></tr>";
     }
 
     let totalMeals = document.getElementById("totalMeals");
@@ -530,12 +551,12 @@ function loadStaffDashboard() {
 
     for (let i = 0; i < meals.length; i++) {
         table.innerHTML +=
-            "<tr><td>" + meals[i].name + "</td>" +
-            "<td>" + meals[i].enrollment + "</td>" +
-            "<td>" + meals[i].meal + "</td>" +
-            "<td>" + meals[i].date + "</td>" +
+            "<tr><td>" + escapeHTML(meals[i].name) + "</td>" +
+            "<td>" + escapeHTML(meals[i].enrollment) + "</td>" +
+            "<td>" + escapeHTML(meals[i].meal) + "</td>" +
+            "<td>" + escapeHTML(meals[i].date) + "</td>" +
             "<td>₹" + meals[i].amount + "</td>" +
-            "<td>" + meals[i].status + "</td></tr>";
+            "<td>" + escapeHTML(meals[i].status) + "</td></tr>";
     }
 
     if (meals.length == 0) {
@@ -561,10 +582,10 @@ function loadDashboard() {
 
         if (table) {
             table.innerHTML +=
-                "<tr><td>" + students[i].name + "</td>" +
-                "<td>" + students[i].enrollment + "</td>" +
-                "<td>" + students[i].studentType + "</td>" +
-                "<td>" + students[i].plan + "</td></tr>";
+                "<tr><td>" + escapeHTML(students[i].name) + "</td>" +
+                "<td>" + escapeHTML(students[i].enrollment) + "</td>" +
+                "<td>" + escapeHTML(students[i].studentType) + "</td>" +
+                "<td>" + escapeHTML(students[i].plan) + "</td></tr>";
         }
     }
 
@@ -587,11 +608,12 @@ function loadDashboard() {
 // ADMIN LOGIN
 
 function adminLogin() {
-    let id = document.getElementById("adminId").value;
+    let id = document.getElementById("adminId").value.trim();
     let password = document.getElementById("adminPassword").value;
 
     if (id == "admin" && password == "1234") {
-        window.location.href = "ADMIN-DASHBOARD.HTML";
+        sessionStorage.setItem("loginRole", "admin");
+        window.location.href = "admin-dashboard.html";
     } else {
         alert("Incorrect Admin ID or Password");
     }
@@ -601,11 +623,12 @@ function adminLogin() {
 // STAFF LOGIN
 
 function staffLogin() {
-    let id = document.getElementById("staffId").value;
+    let id = document.getElementById("staffId").value.trim();
     let password = document.getElementById("staffPassword").value;
 
     if (id == "staff" && password == "1234") {
-        window.location.href = "VERIFICATION.HTML";
+        sessionStorage.setItem("loginRole", "staff");
+        window.location.href = "staff-portal.html";
     } else {
         alert("Incorrect Staff ID or Password");
     }
@@ -632,6 +655,8 @@ function updateRegistrationFields() {
 
 // QR CAMERA SCANNER
 
+let activeScanner = null;
+
 function startMealScanner() {
     if (typeof Html5Qrcode == "undefined") {
         let msg = document.getElementById("verificationMessage");
@@ -642,16 +667,20 @@ function startMealScanner() {
         return;
     }
 
+    if (activeScanner) return;
+
     let scanner = new Html5Qrcode("qrReader");
+    activeScanner = scanner;
 
     scanner.start(
         { facingMode: "environment" },
         { fps: 10, qrbox: 220 },
         (decodedText) => {
             onMealQRScanned(decodedText);
-            scanner.stop().catch(() => {});
+            scanner.stop().catch(() => {}).then(() => { activeScanner = null; });
         }
     ).catch(() => {
+        activeScanner = null;
         let msg = document.getElementById("verificationMessage");
 
         if (msg) msg.innerText =

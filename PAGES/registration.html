@@ -13,7 +13,7 @@
     <h1>MESSCARD</h1>
     <nav>
         <a href="../index.html">Home</a>
-        <a href="student-login.html">Student Login</a>
+        <a href="student-dashboard.html">Student Login</a>
         <a href="staff.html">Staff Login</a>
         <a href="admin.html">Admin Login</a>
     </nav>
@@ -23,7 +23,7 @@
     <h2>Student Registration</h2>
     <p>Register to get your unique mess QR code.</p>
 
-    <form>
+    <form onsubmit="generateQR(); return false;">
         <label>Student Name</label>
         <input type="text" id="studentName" placeholder="Enter your name" required>
 
@@ -54,7 +54,7 @@
             <input type="number" id="dayRecharge" placeholder="Enter recharge amount" min="1">
         </div>
 
-        <button type="button" onclick="generateQR()">Register Student</button>
+        <button type="submit">Register Student</button>
     </form>
     <p id="registrationMessage"></p>
     
