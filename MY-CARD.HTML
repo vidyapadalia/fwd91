@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My QR Card - MESSCARD</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+</head>
+<body>
+
+<header>
+    <h1>MESSCARD</h1>
+    <nav>
+        <a href="../INDEX.HTML">Home</a>
+        <a href="STUDENT-DASHBOARD.HTML">Dashboard</a>
+        <a href="MY-CARD.HTML">My Card</a>
+        <a href="WALLET.HTML">Wallet</a>
+        <a href="MEAL-HISTORY.HTML">Meal History</a>
+    </nav>
+</header>
+
+<section>
+    <h2>My Digital Mess Card</h2>
+    <p>Your unique identity for mess meal verification.</p>
+
+    <div class="dash-card">
+        <h3>MESSCARD</h3>
+
+        <p>Student Name</p>
+        <h2 id="cardName">Student Name</h2>
+
+        <p>Enrollment Number</p>
+        <h3 id="cardEnrollment">Enrollment Number</h3>
+
+        <p>Student Type</p>
+        <h3 id="cardType">Hosteller / Day Scholar</h3>
+
+        <p>Mess Plan</p>
+        <h3 id="cardPlan">Veg / Non-Veg</h3>
+
+        <div id="studentQR"></div>
+
+        <p>Unique Student QR Code</p>
+    </div>
+
+    <p>Present your QR code during meal verification.</p>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../JS/SCRIPT.JS"></script>
+
+</body>
+</html>

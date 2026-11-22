@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - MESSCARD</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+</head>
+<body>
+
+<header>
+    <h1>MESSCARD</h1>
+    <nav>
+        <a href="../INDEX.HTML">Home</a>
+        <a href="REGISTRATION.HTML">Registration</a>
+        <a href="MY-CARD.HTML">My QR Card</a>
+        <a href="WALLET.HTML">Wallet</a>
+        <a href="MEAL-HISTORY.HTML">Meal History</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Student Dashboard</h2>
+    <p>Welcome to your Mess Card Dashboard.</p>
+
+    <div class="dashboard-cards">
+
+        <div class="dash-card">
+            <h3>Student Information</h3>
+            <p id="dashboardName">Student Name</p>
+            <p id="dashboardEnrollment">Enrollment Number</p>
+            <p id="dashboardType">Student Type</p>
+            <p id="dashboardPlan">Mess Plan</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>Account Balance</h3>
+            <h2 id="dashboardBalance">₹0</h2>
+            <p id="balanceType">Subscription / Wallet</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>Meal Charges</h3>
+            <p>Breakfast: <span id="breakfastCharge">₹0</span></p>
+            <p>Lunch: <span id="lunchCharge">₹0</span></p>
+            <p>Dinner: <span id="dinnerCharge">₹0</span></p>
+        </div>
+
+    </div>
+
+    <h3>Student Services</h3>
+
+    <div class="dashboard-cards">
+
+        <div class="dash-card">
+            <h3>My QR Card</h3>
+            <p>View your unique mess QR code.</p>
+            <a href="MY-CARD.HTML">View Card</a>
+        </div>
+
+        <div class="dash-card">
+            <h3>Wallet</h3>
+            <p>Check your balance and recharge.</p>
+            <a href="WALLET.HTML">Open Wallet</a>
+        </div>
+
+        <div class="dash-card">
+            <h3>Meal History</h3>
+            <p>Check your verified meals and deductions.</p>
+            <a href="MEAL-HISTORY.HTML">View History</a>
+        </div>
+
+    </div>
+</section>
+
+<script src="../JS/SCRIPT.JS"></script>
+
+</body>
+</html>
