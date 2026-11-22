@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet - MESSCARD</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+</head>
+<body>
+
+<header>
+    <h1>MESSCARD</h1>
+    <nav>
+        <a href="../INDEX.HTML">Home</a>
+        <a href="STUDENT-DASHBOARD.HTML">Dashboard</a>
+        <a href="MY-CARD.HTML">My Card</a>
+        <a href="WALLET.HTML">Wallet</a>
+        <a href="MEAL-HISTORY.HTML">Meal History</a>
+    </nav>
+</header>
+
+<section>
+    <h2>My Wallet</h2>
+    <p>Manage your mess subscription and meal payments.</p>
+
+    <div class="dash-card" id="hostellerWallet">
+        <h3>Hosteller Subscription</h3>
+
+        <p>Mess Plan</p>
+        <h3 id="walletPlan">Veg / Non-Veg</h3>
+
+        <p>Monthly Subscription</p>
+        <h2 id="walletFee">₹3400 / ₹3800</h2>
+
+        <p>Remaining Subscription Balance</p>
+        <h2 id="walletBalance">₹0</h2>
+
+        <h3>Meal-wise Deduction</h3>
+        <p>Breakfast: <span id="walletBreakfast">₹0</span></p>
+        <p>Lunch: <span id="walletLunch">₹0</span></p>
+        <p>Dinner: <span id="walletDinner">₹0</span></p>
+
+        <p>Amount is deducted only when a meal is successfully verified.</p>
+    </div>
+
+    <div class="dash-card" id="dayScholarWallet">
+        <h3>Day Scholar Wallet</h3>
+
+        <p>Available Wallet Balance</p>
+        <h2 id="dayWalletBalance">₹0</h2>
+
+        <h3>Meal Charges</h3>
+        <p>Breakfast: ₹50</p>
+        <p>Lunch (Veg): ₹70</p>
+        <p>Lunch (Non-Veg - Monday, Wednesday, Friday): ₹80</p>
+        <p>Dinner: ₹70</p>
+
+        <h3>Recharge Wallet</h3>
+
+        <input type="number" id="rechargeAmount"
+        placeholder="Enter recharge amount">
+
+        <button onclick="rechargeWallet()">Recharge</button>
+
+        <p>Wallet balance will be deducted after successful meal verification.</p>
+    </div>
+
+</section>
+
+<script src="../JS/SCRIPT.JS"></script>
+
+</body>
+</html>
