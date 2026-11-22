@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - MESSCARD</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+</head>
+<body>
+
+<header>
+    <h1>MESSCARD</h1>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="registration.html">Student Registration</a>
+        <a href="staff.html">Staff</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Admin Login</h2>
+    <p>Login to manage mess card operations.</p>
+
+    <div class="dash-card">
+        <form onsubmit="adminLogin(); return false;">
+
+            <label>Admin ID</label>
+            <input type="text" id="adminId" placeholder="Enter Admin ID" required>
+
+            <label>Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter Password" required>
+
+            <button type="submit">Login</button>
+
+        </form>
+    </div>
+</section>
+
+<script src="../JS/SCRIPT.JS"></script>
+
+</body>
+</html>

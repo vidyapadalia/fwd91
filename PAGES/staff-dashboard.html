@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - MESSCARD</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+</head>
+<body>
+
+<header>
+    <h1>MESSCARD</h1>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="staff.html">Staff Portal</a>
+        <a href="staff-dashboard.html">Staff Dashboard</a>
+        <a href="verification.html">Meal Verification</a>
+        <a href="admin.html">Admin Login</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Staff Dashboard</h2>
+    <p>Monitor meal verification and daily mess activity.</p>
+
+    <div class="dashboard-cards">
+
+        <div class="dash-card">
+            <h3>Total Verified Meals</h3>
+            <h2 id="staffTotalMeals">0</h2>
+        </div>
+
+        <div class="dash-card">
+            <h3>Breakfast</h3>
+            <h2 id="staffBreakfast">0</h2>
+        </div>
+
+        <div class="dash-card">
+            <h3>Lunch</h3>
+            <h2 id="staffLunch">0</h2>
+        </div>
+
+        <div class="dash-card">
+            <h3>Dinner</h3>
+            <h2 id="staffDinner">0</h2>
+        </div>
+
+    </div>
+
+    <h3>Meal Verification Records</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Enrollment No.</th>
+                <th>Meal</th>
+                <th>Date</th>
+                <th>Amount Deducted</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="staffRecords">
+            <tr>
+                <td colspan="6">No meal records available.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        Meal records will be updated after successful QR verification.
+    </p>
+
+</section>
+
+<script src="../JS/SCRIPT.JS"></script>
+
+</body>
+</html>

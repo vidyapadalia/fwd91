@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - MESSCARD</title>
+    <link rel="stylesheet" href="../CSS/STYLE.CSS">
+</head>
+<body>
+
+<header>
+    <h1>MESSCARD</h1>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="student-login.html">Student Login</a>
+        <a href="staff.html">Staff Login</a>
+        <a href="admin.html">Admin Login</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Student Registration</h2>
+    <p>Register to get your unique mess QR code.</p>
+
+    <form>
+        <label>Student Name</label>
+        <input type="text" id="studentName" placeholder="Enter your name" required>
+
+        <label>Enrollment Number</label>
+        <input type="text" id="enrollment" placeholder="SAU/FET/BTECHCSE/2026/XXX" required>
+
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="Enter email" required>
+
+        <label>Student Type</label>
+        <select id="studentType" onchange="updateRegistrationFields()" required>
+            <option value="">Select Student Type</option>
+            <option value="Hosteller">Hosteller</option>
+            <option value="Day Scholar">Day Scholar</option>
+        </select>
+
+        <div id="hostellerFields">
+            <label>Mess Plan</label>
+            <select id="messPlan">
+                <option value="">Select Mess Plan</option>
+                <option value="3400">Vegetarian - ₹3400</option>
+                <option value="3800">Non-Vegetarian - ₹3800</option>
+            </select>
+        </div>
+
+        <div id="dayScholarFields" style="display:none;">
+            <label>Wallet Recharge Amount (₹)</label>
+            <input type="number" id="dayRecharge" placeholder="Enter recharge amount" min="1">
+        </div>
+
+        <button type="button" onclick="generateQR()">Register Student</button>
+    </form>
+    <p id="registrationMessage"></p>
+    
+</section>
+
+
+<script src="../JS/SCRIPT.JS"></script>
+
+</body>
+</html>
